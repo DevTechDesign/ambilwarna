@@ -25,7 +25,7 @@ allprojects {
  */
 ext {
     propCompileSdkVersion = 27
-    propMinSdkVersion = 7
+    propMinSdkVersion = 17
     propTargetSdkVersion = propCompileSdkVersion
     propVersionCode = 3
     propVersionName = '2.0.1'
