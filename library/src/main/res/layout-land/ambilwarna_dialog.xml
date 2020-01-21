@@ -4,33 +4,45 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
+    android:background="@drawable/white_dialog_rounded_background"
     android:clipToPadding="false"
     android:paddingLeft="@dimen/ambilwarna_spacer"
     android:paddingTop="@dimen/ambilwarna_spacer"
     android:paddingRight="@dimen/ambilwarna_spacer"
     android:paddingBottom="0dp">
 
-    <yuku.ambilwarna.AmbilWarnaSquare
-        android:id="@+id/ambilwarna_viewSatBri"
-        android:layout_width="@dimen/ambilwarna_hsvWidth"
-        android:layout_height="@dimen/ambilwarna_hsvHeight"
-        android:layerType="software" />
+    <LinearLayout
+        android:id="@+id/llColorAreas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal"
+        android:weightSum="2">
 
-    <!-- needed because i can't get parent keeping its bottom layout
-    and its wrap_content height. This view will serve as a bottom spacer. -->
-    <View
-        android:layout_width="@dimen/ambilwarna_spacer"
-        android:layout_height="@dimen/ambilwarna_spacer"
-        android:layout_below="@id/ambilwarna_viewSatBri" />
+        <yuku.ambilwarna.AmbilWarnaSquare
+            android:id="@+id/ambilwarna_viewSatBri"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/ambilwarna_hsvHeight"
+            android:layout_weight="1.75"
+            android:layerType="software" />
 
-    <ImageView
-        android:id="@+id/ambilwarna_viewHue"
-        android:layout_width="@dimen/ambilwarna_hueWidth"
-        android:layout_height="@dimen/ambilwarna_hsvHeight"
-        android:layout_marginLeft="@dimen/ambilwarna_spacer"
-        android:layout_toRightOf="@id/ambilwarna_viewSatBri"
-        android:scaleType="fitXY"
-        android:src="@drawable/ambilwarna_hue" />
+        <!-- needed because i can't get parent keeping its bottom layout
+        and its wrap_content height. This view will serve as a bottom spacer. -->
+        <View
+            android:layout_width="@dimen/ambilwarna_spacer"
+            android:layout_height="@dimen/ambilwarna_spacer"
+            android:layout_below="@id/ambilwarna_viewSatBri" />
+
+        <ImageView
+            android:id="@+id/ambilwarna_viewHue"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/ambilwarna_hsvHeight"
+            android:layout_marginLeft="@dimen/ambilwarna_spacer"
+            android:layout_weight=".25"
+            android:scaleType="fitXY"
+            android:src="@drawable/ambilwarna_hue" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/ambilwarna_cursor"
@@ -56,25 +68,34 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ambilwarna_viewSatBri"
-        android:layout_alignEnd="@+id/ambilwarna_viewHue"
+        android:layout_below="@+id/llColorAreas"
         android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
         android:orientation="horizontal"
+        android:paddingBottom="@dimen/ambilwarna_spacer"
         android:weightSum="2">
 
         <Button
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
-            android:text="Cancel"/>
+            android:background="@drawable/cancel_unearth_background"
+            android:text="Cancel"
+            android:textColor="@color/colorPrimary" />
 
         <Button
             android:id="@+id/btnOk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:text="Ok"/>
+            android:background="@drawable/ok_unearth_background"
+            android:text="Ok"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
